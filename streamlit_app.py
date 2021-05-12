@@ -64,10 +64,10 @@ st.header("Predict if plant is healthy")
 file_uploaded = st.file_uploader("Choose File", type=["png", "jpg", "jpeg"])
 
 if file_uploaded is not None:
+    fig, ax = plt.subplots()
     image = Image.open(file_uploaded)
     plt.imshow(image)
     plt.axis("off")
     predictions = predict(image)
     st.write(predictions)
-    fig = plt.figure()
     st.pyplot(fig)
